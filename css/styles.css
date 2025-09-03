@@ -781,8 +781,12 @@ header {
   position: relative;
 }
 
+#quote {
+  margin-top: 1em;
+}
+
 .quote-icon {
-  position: absolute;
+  position: relative;
   top: -1rem;
   left: -1rem;
   font-size: 3rem;
