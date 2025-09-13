@@ -67,7 +67,7 @@ body {
 
 /*Logo*/
 #logo {
-  height: 7em;
+  height: 5em;
   width: 7.3em;
 }
 
@@ -259,6 +259,7 @@ button, input, textarea, select {
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(10, 147, 150, 0.3);
+  border-radius: 1em;
 }
 
 .btn-primary::before {
@@ -268,10 +269,11 @@ button, input, textarea, select {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  background-color: #005f73;
   z-index: -1;
   opacity: 0;
   transition: var(--transition);
+  border-radius: 1em;
 }
 
 .btn-primary:hover::before {
@@ -283,6 +285,10 @@ button, input, textarea, select {
   color: var(--primary-color);
   background-color: transparent;
   width: 15em;
+}
+
+#submit {
+  border-radius: 0.5em;
 }
 
 .btn-outline:hover {
@@ -561,30 +567,29 @@ header {
   overflow: hidden;
   box-shadow: var(--box-shadow-hover);
 }
-
 .experience-badge {
   position: absolute;
-  bottom: -20px;
+  bottom: -5px;
   right: -20px;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 460px;
+  height: 80px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 30px rgba(0, 95, 115, 0.3);
   z-index: 2;
+  border-radius: 8px;
+  padding: 0 1px;
+  text-align: center;
 }
 
 .experience-badge span {
-  font-size: 2rem;
+  font-size: 1.09rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
 }
-
 .experience-badge small {
   font-size: 0.7rem;
   opacity: 0.9;
@@ -753,182 +758,6 @@ header {
   font-size: 0.95rem;
 }
 
-/* ===== TESTIMONIALS SECTION ===== */
-.testimonials-slider {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-}
-
-.testimonial {
-  display: none;
-  background: white;
-  padding: 3rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-}
-
-.dark-mode .testimonial {
-  background: #2b3035;
-}
-
-.testimonial.active {
-  display: block;
-  animation: fadeIn 0.5s ease;
-}
-
-.testimonial-content {
-  position: relative;
-}
-
-#quote {
-  margin-top: 1em;
-}
-
-.quote-icon {
-  position: relative;
-  top: -1rem;
-  left: -1rem;
-  font-size: 3rem;
-  color: rgba(10, 147, 150, 0.1);
-  z-index: 0;
-}
-
-.testimonial-text {
-  font-size: 1.1rem;
-  font-style: italic;
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 1;
-  color: var(--text-color);
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.testimonial-author img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--accent-color);
-}
-
-.author-info h4 {
-  margin-bottom: 0.3rem;
-  font-size: 1.1rem;
-  color: var(--primary-color);
-}
-
-.author-info span {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.rating {
-  color: #ffc107;
-  font-size: 0.9rem;
-}
-
-.testimonial-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.testimonial-prev,
-.testimonial-next {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  cursor: pointer;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  background-color: rgba(10, 147, 150, 0.1);
-}
-
-.testimonial-prev:hover,
-.testimonial-next:hover {
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-.testimonial-dots {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: var(--border-color);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.dot.active {
-  background-color: var(--secondary-color);
-  transform: scale(1.2);
-}
-
-.clients-logos {
-  margin-top: 4rem;
-}
-
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  align-items: center;
-}
-
-.logo-item {
-  background: white;
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  transition: var(--transition);
-}
-
-.dark-mode .logo-item {
-  background: #2b3035;
-}
-
-.logo-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--box-shadow-hover);
-}
-
-.logo-item img {
-  max-height: 50px;
-  width: auto;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: var(--transition);
-}
-
-.logo-item:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-}
 
 /* ===== CONTACT SECTION ===== */
 .contact-info {
@@ -1072,7 +901,6 @@ header {
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  transition: var(--transition);
   background-color: var(--bg-light);
 }
 
@@ -1136,6 +964,59 @@ header {
   margin-top: 0.25rem;
   color: var(--danger-color);
   height: 0.75rem;
+}
+
+/* REMOVER completamente efeitos de hover problemáticos dos campos do formulário */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+  cursor: text !important;
+}
+
+/* Garantir que nenhum efeito de brilho seja aplicado aos campos */
+.form-group input::after,
+.form-group textarea::after,
+.form-group select::after,
+.form-group input::before,
+.form-group textarea::before,
+.form-group select::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Remover qualquer transformação que possa causar flickering */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  transform: none !important;
+}
+
+/* Melhorar o visual dos campos no hover e foco */
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: var(--secondary-color) !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--secondary-color) !important;
+  box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.2) !important;
+  outline: none !important;
+}
+
+/* Garantir que os labels não interfiram */
+.form-group label {
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* Desativar qualquer efeito de parallax ou transformação problemática */
+.form-group {
+  transform: none !important;
+  transition: none !important;
 }
 
 /* ===== FOOTER ===== */
@@ -1318,79 +1199,4 @@ footer::before {
   position: fixed;
   bottom: 2rem;
   left: 50%;
-  transform: translateX(-50%);
-  background: var(--primary-color);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow-hover);
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition);
-  z-index: 1000;
-}
-
-.notification.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 1200px) {
-  .container {
-    padding: 0 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .grid-2-columns {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .contact-info {
-    padding-right: 0;
-    margin-bottom: 3rem;
-  }
-  
-  .section {
-    padding: 4rem 0;
-  }
-  
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero .subtitle {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-  
-  .hero h1 {
-    font-size: 2rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .hero-buttons .btn {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .testimonial-author {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .testimonial-author img {
-    margin-bottom: 1rem;
-  }
-}
+  transform: translateX(-50%);}

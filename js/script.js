@@ -133,93 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ========== Testimonial Slider ==========
-  const testimonials = document.querySelectorAll('.testimonial');
-  const dotsContainer = document.querySelector('.testimonial-dots');
-  const prevBtn = document.querySelector('.testimonial-prev');
-  const nextBtn = document.querySelector('.testimonial-next');
-  
-  if (testimonials.length > 0 && dotsContainer && prevBtn && nextBtn) {
-    let currentTestimonial = 0;
-    let testimonialInterval;
-    
-    // Criar dots
-    testimonials.forEach(function(_, index) {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', function() {
-        showTestimonial(index);
-        resetInterval();
-      });
-      dotsContainer.appendChild(dot);
-    });
-    
-    const dots = document.querySelectorAll('.dot');
-    
-    // Mostrar testimonial específico
-    function showTestimonial(index) {
-      testimonials.forEach(testimonial => {
-        testimonial.style.opacity = '0';
-        testimonial.style.transform = 'translateX(20px)';
-        testimonial.style.transition = 'none';
-      });
-
-      setTimeout(() => {
-        testimonials.forEach(testimonial => {
-          testimonial.classList.remove('active');
-          testimonial.style.opacity = '';
-          testimonial.style.transform = '';
-          testimonial.style.transition = 'all 0.5s ease';
-        });
-        
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentTestimonial = index;
-        testimonials[currentTestimonial].classList.add('active');
-        dots[currentTestimonial].classList.add('active');
-      }, 50);
-    }
-    
-    // Navegação
-    prevBtn.addEventListener('click', function() {
-      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentTestimonial);
-      resetInterval();
-    });
-    
-    nextBtn.addEventListener('click', function() {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      showTestimonial(currentTestimonial);
-      resetInterval();
-    });
-    
-    // Auto-rotacionar
-    function startInterval() {
-      testimonialInterval = setInterval(function() {
-        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        showTestimonial(currentTestimonial);
-      }, 5000);
-    }
-    
-    function resetInterval() {
-      clearInterval(testimonialInterval);
-      startInterval();
-    }
-    
-    startInterval();
-    
-    // Pausar ao interagir
-    const sliderContainer = document.querySelector('.testimonials-slider');
-    if (sliderContainer) {
-      sliderContainer.addEventListener('mouseenter', function() {
-        clearInterval(testimonialInterval);
-      });
-      
-      sliderContainer.addEventListener('mouseleave', startInterval);
-    }
-  }
-
   // ========== Back to Top Button ==========
   const backToTopBtn = document.querySelector('.back-to-top');
   
@@ -236,6 +149,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // ========== Service Card Hover Effect ==========
+  const serviceCards = document.querySelectorAll('.service-card');
+  
+  serviceCards.forEach(card => {
+    // Remover event listeners antigos para evitar duplicação
+    card.removeEventListener('mousemove', handleCardMouseMove);
+    card.removeEventListener('mouseleave', handleCardMouseLeave);
+    
+    // Adicionar novos event listeners
+    card.addEventListener('mousemove', handleCardMouseMove);
+    card.addEventListener('mouseleave', handleCardMouseLeave);
+  });
+
+  function handleCardMouseMove(e) {
+    const rect = this.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    this.style.setProperty('--mouse-x', `${x}px`);
+    this.style.setProperty('--mouse-y', `${y}px`);
+  }
+
+  function handleCardMouseLeave() {
+    // Resetar as propriedades quando o mouse sai do card
+    this.style.setProperty('--mouse-x', '0px');
+    this.style.setProperty('--mouse-y', '0px');
+  }
+
   // ========== Form Submission ==========
   const contactForm = document.getElementById('contactForm');
   
@@ -244,14 +185,43 @@ document.addEventListener('DOMContentLoaded', function() {
     const formFields = contactForm.querySelectorAll('input, textarea, select');
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     
+    // Variável para controlar a atualização do progresso
+    let lastProgressUpdate = 0;
+    
+    // DESATIVAR completamente efeitos de hover nos campos do formulário
     formFields.forEach(field => {
-      field.addEventListener('input', function() {
+      // Remover qualquer evento de mousemove
+      field.removeEventListener('mousemove', handleFieldMouseMove);
+      
+      // Garantir que o cursor seja apropriado para campos de texto
+      field.style.cursor = 'text';
+      
+      // Adicionar eventos de foco e blur para melhor UX
+      field.addEventListener('focus', function() {
+        this.style.boxShadow = '0 0 0 3px rgba(10, 147, 150, 0.2)';
+        this.style.borderColor = 'var(--secondary-color)';
+      });
+      
+      field.addEventListener('blur', function() {
+        this.style.boxShadow = '';
+        this.style.borderColor = '';
+        validateField(this);
+      });
+      
+      // Usar evento 'change' em vez de 'input' para reduzir frequência
+      field.addEventListener('change', function() {
         validateField(this);
         updateFormProgress();
       });
       
-      field.addEventListener('blur', function() {
-        validateField(this);
+      // Usar debounce no evento input para reduzir atualizações
+      let inputTimeout;
+      field.addEventListener('input', function() {
+        clearTimeout(inputTimeout);
+        inputTimeout = setTimeout(() => {
+          validateField(this);
+          updateFormProgress();
+        }, 300);
       });
     });
     
@@ -314,6 +284,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateFormProgress() {
+      // Prevenir atualizações muito frequentes (máximo 1 por segundo)
+      const now = Date.now();
+      if (now - lastProgressUpdate < 1000) return;
+      lastProgressUpdate = now;
+      
       const totalFields = formFields.length;
       let filledFields = 0;
       
@@ -322,23 +297,14 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       const progress = (filledFields / totalFields) * 100;
-      document.documentElement.style.setProperty('--form-progress', `${progress}%`);
+      
+      // Apenas atualiza se houver mudança significativa (5% ou mais)
+      const currentProgress = parseFloat(document.documentElement.style.getPropertyValue('--form-progress') || '0');
+      if (Math.abs(progress - currentProgress) >= 5 || progress === 100 || progress === 0) {
+        document.documentElement.style.setProperty('--form-progress', `${progress}%`);
+      }
     }
   }
-
-  // ========== Service Card Hover Effect ==========
-  const serviceCards = document.querySelectorAll('.service-card');
-  
-  serviceCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
-  });
 
   // ========== Efeito de Digitação ==========
   function typeEffect(element, speed) {
@@ -469,3 +435,6 @@ if (typeof AOS !== 'undefined') {
     mirror: false
   });
 }
+
+// Função vazia para evitar erros
+function handleFieldMouseMove() {}

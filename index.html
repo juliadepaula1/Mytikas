@@ -31,7 +31,7 @@
   <header>
     <div class="container header-container">
       <a href="#home" class="logo">
-        <img id="logo" src="img/logo.png" alt="Mytikas Administração Premium" width="150">
+        <img id="logo" src="img/fonte.png" alt="Mytikas Administração Premium" width="150">
       </a>
       
       <nav class="nav">
@@ -63,7 +63,7 @@
         <h1>Excelência em Gestão Condominial</h1>
         <p class="subtitle">Soluções inteligentes e personalizadas para condomínios de alto padrão</p>
         <div class="hero-buttons">
-          <a href="#contato" class="btn-primary pulse">Solicitar Proposta</a>
+          <a id="proposta" href="#contato" class="btn-primary pulse">Solicitar Proposta</a>
           <a href="#servicos" class="btn-outline">
             <i class="fas fa-play-circle"></i> Conheça nossos serviços
           </a>
@@ -111,10 +111,12 @@
         
         <div class="about-image" data-aos="fade-left">
           <div class="image-frame">
-            <img src="images/placeholder.jpg" data-src="images/team.jpg" alt="Equipe Mytikas" class="rounded-image lazy-load">
-            <div class="experience-badge pulse-slow">
-              <span>13+</span>
-              <small>Anos de experiência</small>
+            <img id="templo" src="img/templo.png" data-src="img/templo.png" alt="Equipe Mytikas" class="rounded-image lazy-load">
+            <br></br>
+            <div id="experiencia"  class="experience-badge pulse-slow">
+              <span>
+                <a href="experiencia">Mais de 13 anos de experiência no mercado</a>
+              </span>
             </div>
           </div>
         </div>
@@ -240,91 +242,6 @@
     </div>
   </section>
 
-  <!-- Clientes Section -->
-  <section id="clientes" class="section bg-light">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">CLIENTES</span>
-        <h2>Quem confia em nosso trabalho</h2>
-        <p class="section-subtitle">Depoimentos de síndicos e condôminos</p>
-      </div>
-      
-      <div class="testimonials-slider" data-aos="fade-up">
-        <div class="testimonial active">
-          <div class="testimonial-content">
-            <div id="quote" class="quote-icon">
-              <i class="fas fa-quote-left"></i>
-            </div>
-            <p class="testimonial-text">"A Mytikas revolucionou a gestão do nosso condomínio. Em um ano reduzimos 22% dos custos operacionais e aumentamos a satisfação dos moradores em 40%."</p>
-            <div class="testimonial-author">
-              <img src="images/client1.jpg" alt="Sílvia Martins">
-              <div class="author-info">
-                <h4>Sílvia Martins</h4>
-                <span>Síndica - Green Valley Premium</span>
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial">
-          <div class="testimonial-content">
-            <div class="quote-icon">
-              <i class="fas fa-quote-left"></i>
-            </div>
-            <p class="testimonial-text">"A plataforma digital eliminou completamente as reclamações sobre falta de transparência. Todos os moradores agora têm acesso instantâneo às informações."</p>
-            <div class="testimonial-author">
-              <img src="images/client2.jpg" alt="Carlos Eduardo">
-              <div class="author-info">
-                <h4>Carlos Eduardo</h4>
-                <span>Síndico - Business Tower</span>
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-nav">
-          <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
-          <div class="testimonial-dots"></div>
-          <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-      </div>
-      
-      <div class="clients-logos" data-aos="fade-up">
-        <div class="logo-grid">
-          <div class="logo-item">
-            <img src="images/client-logo1.png" alt="Green Valley">
-          </div>
-          <div class="logo-item">
-            <img src="images/client-logo2.png" alt="Business Tower">
-          </div>
-          <div class="logo-item">
-            <img src="images/client-logo3.png" alt="Solaris Residence">
-          </div>
-          <div class="logo-item">
-            <img src="images/client-logo4.png" alt="Golden Life">
-          </div>
-          <div class="logo-item">
-            <img src="images/client-logo5.png" alt="Urban Living">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contato Section -->
   <section id="contato" class="section">
     <div class="container">
@@ -436,7 +353,7 @@
               <div class="form-feedback"></div>
             </div>
             
-            <button type="submit" class="btn-primary">
+            <button type="submit" id="submit" class="btn-primary">
               <span class="btn-text">Enviar Mensagem</span>
               <i class="fas fa-paper-plane"></i>
             </button>
@@ -451,7 +368,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col footer-logo">
-          <img src="images/logo-white.png" alt="Mytikas" width="180">
+          <img src="img/templo.png" alt="Mytikas" width="180">
           <p>Soluções premium em administração condominial com tecnologia, transparência e excelência.</p>
           <div class="footer-social">
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
