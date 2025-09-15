@@ -68,7 +68,7 @@ body {
 /*Logo*/
 #logo {
   height: 5em;
-  width: 7.3em;
+  width: 10em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -248,12 +248,18 @@ button, input, textarea, select {
   transform: scale(0.98);
 }
 
-.btn-primary {
+#proposta {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
   box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
   border-radius: 1em;
   width: 10em;
+}
+
+#proposta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(10, 147, 150, 0.3);
+  border-radius: 1em;
 }
 
 .btn-primary:hover {
@@ -289,6 +295,22 @@ button, input, textarea, select {
 
 #submit {
   border-radius: 0.5em;
+  font-size: 20px;
+  color: #f8f9fa;
+  background-color: #0a9396;
+  height: 35px;
+  width: 250px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
+}
+
+#submit:hover {
+  height: 36px;
+  width: 251px;
+  cursor: pointer;
+  font-size: 21px;
+  background-color: #005f73;
+  box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
 }
 
 .btn-outline:hover {
@@ -892,6 +914,7 @@ header {
 .form-group {
   position: relative;
   margin-bottom: 1.5rem;
+  color: #f8f9fa;
 }
 
 .form-group input,
@@ -902,6 +925,7 @@ header {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background-color: var(--bg-light);
+  color: white;
 }
 
 .form-group textarea {
