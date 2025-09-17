@@ -302,6 +302,12 @@ button, input, textarea, select {
   height: auto;
 }
 
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
 #submit {
   border-radius: 0.5em;
 }
@@ -319,10 +325,6 @@ button, input, textarea, select {
   transform: translateY(-3px);
 }
 
-.btn-outline:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
 
 /* Grids */
 .grid-2-columns {
@@ -789,6 +791,14 @@ header {
 
 .feature-content p {
   font-size: 0.95rem;
+}
+
+.experiencia {
+  justify-content: center;
+}
+
+.experiencia:hover {
+  cursor: text;
 }
 
 
