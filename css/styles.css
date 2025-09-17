@@ -58,7 +58,7 @@ html {
 body {
   font-family: var(--font-primary);
   color: var(--text-color);
-  background-color: var(--light-color);
+  background-color: var(--dark-color);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
@@ -267,7 +267,9 @@ button, input, textarea, select {
   color: white;
   box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
   border-radius: 1em;
-  width: 10em;
+  width: 11em;
+  height: fit-content;
+  font-size: 1.6em;
 }
 
 .btn-cta:hover {
@@ -303,11 +305,26 @@ button, input, textarea, select {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background-color: transparent;
-  width: 15em;
+  width: 16em;
   height: auto;
 }
 
 .btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn-service{
+  border: 1.5px solid var(--primary-color);
+  font-size: 1.35em ;
+  width: fit-content;
+  color: #0a9396;
+  width: 16em;
+  height: auto;
+}
+
+.btn-service:hover {
   background-color: var(--primary-color);
   color: white;
   transform: translateY(-3px);
@@ -764,6 +781,80 @@ header {
   opacity: 1;
 }
 
+/* ===== ÁREA DO CONDÔMINO ===== */
+.logica {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-right: 10em;
+  margin-left: 10em;
+}
+
+.logica-left {
+  flex: 0 0 auto;
+}
+
+.logica-right {
+  flex: 2;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.img-logica {
+  max-height: 450px;
+  width: auto;
+  object-fit: contain;
+  background: linear-gradient(160deg, var(--primary-color), var(--secondary-color));
+  border-radius: 5em;
+  }
+
+.texto-logica {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 400px;
+  color: white;
+}
+
+.btn-logica {
+  display: inline-block;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
+  font-size: 1.6rem;
+}
+
+.btn-logica:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(10, 147, 150, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .logica {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logica-right {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .texto-logica {
+    font-size: 1.2rem;
+  }
+}
 /* ===== FEATURES SECTION ===== */
 .features-container {
   display: grid;
