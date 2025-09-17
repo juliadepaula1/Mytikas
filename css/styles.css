@@ -68,7 +68,7 @@ body {
 /*Logo*/
 #logo {
   height: 5em;
-  width: 10em;
+  width: 7.3em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -248,12 +248,8 @@ button, input, textarea, select {
   transform: scale(0.98);
 }
 
-<<<<<<< HEAD
 
 .btn-primary {
-=======
-#proposta {
->>>>>>> 67631e85d20428a80d2e80ef658d9756172f4203
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
   box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
@@ -261,7 +257,6 @@ button, input, textarea, select {
   width: 10em;
 }
 
-<<<<<<< HEAD
 .btn-cta {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
@@ -273,12 +268,6 @@ button, input, textarea, select {
 .btn-cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(10, 147, 150, 0.3);
-=======
-#proposta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(10, 147, 150, 0.3);
-  border-radius: 1em;
->>>>>>> 67631e85d20428a80d2e80ef658d9756172f4203
 }
 
 .btn-primary:hover {
@@ -321,22 +310,6 @@ button, input, textarea, select {
 
 #submit {
   border-radius: 0.5em;
-  font-size: 20px;
-  color: #f8f9fa;
-  background-color: #0a9396;
-  height: 35px;
-  width: 250px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
-}
-
-#submit:hover {
-  height: 36px;
-  width: 251px;
-  cursor: pointer;
-  font-size: 21px;
-  background-color: #005f73;
-  box-shadow: 0 5px 15px rgba(10, 147, 150, 0.2);
 }
 
 .submit {
@@ -962,7 +935,6 @@ header {
 .form-group {
   position: relative;
   margin-bottom: 1.5rem;
-  color: #f8f9fa;
 }
 
 .form-group input,
