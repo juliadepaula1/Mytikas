@@ -170,7 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         submitText.textContent = 'Enviado!';
         submitIcon.className = 'fas fa-check';
-        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 2000);
+        
 
         setTimeout(function() {
           submitText.textContent = originalText;

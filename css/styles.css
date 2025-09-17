@@ -58,7 +58,7 @@ html {
 body {
   font-family: var(--font-primary);
   color: var(--text-color);
-  background-color: var(--dark-color);
+  background-color: #001219;
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-bottom: 1rem;
-  color: var(--text-light);
+  color: #adb5bd;
   line-height: 1.8;
 }
 
@@ -221,7 +221,7 @@ button, input, textarea, select {
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: var(--text-light);
+  color: #adb5bd;
   margin-bottom: 1.5rem;
 }
 
@@ -505,8 +505,7 @@ header {
   min-height: 700px;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('../images/hero-bg.jpg') center/cover no-repeat;
+  height: 100vh;
   color: white;
   padding-top: 80px;
   overflow: hidden;
@@ -518,13 +517,14 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 95, 115, 0.3) 0%, rgba(0, 18, 25, 0.5) 100%);
-  background-image: url(/img/monte.jpg);
-  background-repeat: no-repeat;   /* evita repetir */
-  background-size: cover;        /* cobre toda a section */
-  background-position: center;   /* centraliza a imagem */
-  height: 100vh;                 /* ocupa a altura da tela toda */
+  background: linear-gradient(135deg, rgba(0, 95, 115, 0.3) 0%, rgba(0, 18, 25, 0.5) 100%);  
+  height: 100vh;                
   z-index: 1;
+  background: url(/Mytikas/img/monte.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .hero-overlay::before {
@@ -588,7 +588,7 @@ header {
   font-size: 1.2rem;
   line-height: 1.8;
   margin-bottom: 2rem;
-  color: var(--text-color);
+  color: #adb5bd;
 }
 
 .about-features {
@@ -669,7 +669,7 @@ header {
 
 /* ===== SERVICES SECTION ===== */
 .service-card {
-  background: white;
+  background: #2b3035;
   border: none;
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -863,7 +863,7 @@ header {
 }
 
 .feature-box {
-  background: white;
+  background: #2b3035;
   padding: 2.5rem 2rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -951,7 +951,6 @@ header {
 .contact-details h4 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: var(--primary-color);
 }
 
 .contact-details a, 
@@ -995,7 +994,7 @@ header {
 }
 
 .contact-form {
-  background: white;
+  background: #2b3035;
   padding: 3rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -1040,12 +1039,13 @@ header {
 }
 
 .form-header p {
-  color: var(--text-light);
+  color: #adb5bd;
 }
 
 .form-group {
   position: relative;
   margin-bottom: 1.5rem;
+  color: #001219;
 }
 
 .form-group input,
@@ -1055,8 +1055,8 @@ header {
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  background-color: var(--bg-light);
-  color: white;
+  background-color: #495057;
+  color: white; /* O que vai ser escrito na label*/
 }
 
 .form-group textarea {
@@ -1076,10 +1076,10 @@ header {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  color: var(--text-light);
+  color: #d1d1d1;
   transition: var(--transition);
   pointer-events: none;
-  background-color: var(--bg-light);
+  background-color: #495057;
   padding: 0 0.5rem;
   font-size: 0.9rem;
 }
@@ -1087,7 +1087,7 @@ header {
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--secondary-color);
+  border-color: #001219;
   box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.1);
   outline: none;
 }
@@ -1102,8 +1102,7 @@ header {
   left: 0.8rem;
   font-size: 0.75rem;
   color: var(--secondary-color);
-  background-color: var(--light-color);
-}
+  background-color: #001219;}
 
 .dark-mode .form-group input:focus + label,
 .dark-mode .form-group textarea:focus + label,
