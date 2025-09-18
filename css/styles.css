@@ -58,7 +58,7 @@ html {
 body {
   font-family: var(--font-primary);
   color: var(--text-color);
-  background-color: #001219;
+  background: linear-gradient(135deg, #001219, #212529);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
@@ -520,7 +520,7 @@ header {
   background: linear-gradient(135deg, rgba(0, 95, 115, 0.3) 0%, rgba(0, 18, 25, 0.5) 100%);  
   height: 100vh;                
   z-index: 1;
-  background: url(/Mytikas/img/monte.jpg);
+  background: url(/img/monte.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
