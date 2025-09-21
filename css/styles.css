@@ -520,7 +520,7 @@ header {
   background: linear-gradient(135deg, rgba(0, 95, 115, 0.3) 0%, rgba(0, 18, 25, 0.5) 100%);  
   height: 100vh;                
   z-index: 1;
-  background: url(/img/monte.jpg);
+  background: url(/Mytikas/img/monte.jpg); /* Não mudar o caminho*/
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -668,43 +668,54 @@ header {
 }
 
 /* ===== SERVICES SECTION ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 2rem; /* espaçamento entre eles */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .service-card {
   background: #2b3035;
   border: none;
   border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: var(--transition);
-  box-shadow: var(--box-shadow);
-  position: relative;
-  z-index: 1;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  transform: translateZ(0);
+  overflow: hidden; 
+  transition: var(--transition); 
+  box-shadow: var(--box-shadow); 
+  position: relative; 
+  z-index: 1; 
+  padding: 2.5rem 2rem; 
+  width: 360px;
+  text-align: center; 
+  transform: translateZ(0); 
   will-change: transform;
 }
 
-.dark-mode .service-card {
-  background: #2b3035;
+.service-card::before { 
+  content: ''; 
+  position: absolute; 
+  top: 0; left: 0; 
+  width: 100%; 
+  height: 5px; 
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); 
+  z-index: 2; 
 }
 
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  z-index: 2;
+/* Esconde o segundo parágrafo dentro do card */
+.service-card p.extra {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.4s ease;
+  margin: 0; /* evita espaço vazio quando escondido */
 }
 
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--box-shadow-hover);
-}
-
-.service-card:active {
-  transform: translateY(-8px) scale(0.98);
+/* Mostra no hover */
+.service-card:hover p.extra {
+  max-height: 200px; /* ajusta a altura conforme o conteúdo */
+  opacity: 1;
+  margin-top: 1rem;
 }
 
 .service-icon {
@@ -1354,3 +1365,5 @@ footer::before {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);}
+
+  
