@@ -197,6 +197,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Coleta os dados do formulário
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const telefone = document.getElementById('telefone').value;
+  const condominio = document.getElementById('condominio').value;
+  const tipo = document.getElementById('tipo').value;
+  const mensagem = document.getElementById('mensagem').value;
+
+  // Monta o texto para o WhatsApp
+  const texto = `Olá, gostaria de uma proposta!\n\nNome: ${nome}\nEmail: ${email}\nTelefone: ${telefone}\nCondomínio: ${condominio}\nTipo: ${tipo}\nMensagem: ${mensagem}`;
+  const url = `https://wa.me/5516991089479?text=${encodeURIComponent(texto)}`;
+
+  // Abre o WhatsApp em nova aba
+  window.open(url, '_blank');
+});
+
   // ========== Efeito de Digitação ==========
   function typeEffect(element, speed) {
     const text = element.innerHTML;
